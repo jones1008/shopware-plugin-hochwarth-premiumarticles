@@ -1,0 +1,16 @@
+{% block hochwarth_premiumArticles_list %}
+    <sw-page class="hochwarth-premium-articles-list">
+        <template slot="content">
+            {% block hochwarth_premiumArticles_list_content %}
+                <sw-entity-listing
+                        v-if="premiumArticles"
+                        :items="premiumArticles"
+                        :repository="repository"
+                        :showSelection="false"
+                        :columns="columns"
+                        detailRoute="hochwarth.premiumArticles.detail">
+                </sw-entity-listing>
+            {% endblock %}
+        </template>
+    </sw-page>
+{% endblock %}

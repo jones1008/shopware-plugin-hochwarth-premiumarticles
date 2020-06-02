@@ -1,0 +1,12 @@
+{
+    "hochwarth-premiumArticles": {
+        "general": {
+            "pluginName": "Prämienartikel",
+            "description": "Verwalte hier deine Prämienartikel."
+        },
+        "list": {
+            "active": "aktiv",
+            "minPrice": "Preis"
+        }
+    }
+}
