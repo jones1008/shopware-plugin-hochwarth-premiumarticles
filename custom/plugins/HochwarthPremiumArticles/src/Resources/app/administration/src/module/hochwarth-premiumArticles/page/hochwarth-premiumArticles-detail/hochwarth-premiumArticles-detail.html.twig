@@ -1,0 +1,45 @@
+{% block hochwarth_premiumArticles_detail %}
+    <sw-page class="hochwarth-premiumArticles-detail">
+        <template slot="smart-bar-actions">
+            <sw-button :routerLink="{ name: 'hochwarth.premiumArticles.list' }">
+                {{ $t('hochwarth-premiumArticles.cancelButtonText') }}
+            </sw-button>
+
+            <sw-button-process
+                    :isLoading="isLoading"
+                    :processSuccess="processSuccess"
+                    variant="primary"
+                    @process-finish="saveFinish"
+                    @click="onClickSave"
+            >
+                {{ $t('hochwarth-premiumArticles.saveButtonText') }}
+            </sw-button-process>
+        </template>
+        <template slot="content">
+            <sw-card-view>
+                <sw-card v-if="premiumArticle">
+                    <sw-checkbox-field
+                            :label="$t('hochwarth-premiumArticles.entity.active')"
+                            v-model="premiumArticle.active"
+                    ></sw-checkbox-field>
+                    <sw-field
+                            :label="$t('hochwarth-premiumArticles.entity.minPrice')"
+                            v-model="premiumArticle.minPrice"
+                            validation="required"
+                            type="number"
+                            :step="0.1"
+                    ></sw-field>
+                    <sw-entity-single-select
+                            :label="$t('hochwarth-premiumArticles.entity.product')"
+                            entity="product"
+                            v-model="premiumArticle.productId"
+                    ></sw-entity-single-select>
+                    <sw-checkbox-field
+                            :label="$t('hochwarth-premiumArticles.entity.automaticAdd')"
+                            v-model="premiumArticle.automaticAdd"
+                    ></sw-checkbox-field>
+                </sw-card>
+            </sw-card-view>
+        </template>
+    </sw-page>
+{% endblock %}

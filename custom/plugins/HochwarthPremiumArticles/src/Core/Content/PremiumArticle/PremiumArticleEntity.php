@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
+use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
-use Shopware\Core\Content\Product\ProductDefinition;
 
 class PremiumArticleEntity extends Entity
 {
@@ -18,8 +18,11 @@ class PremiumArticleEntity extends Entity
      */
     protected $minPrice;
 
+    /** @var string */
+    protected $productId;
+
     /**
-     * @var ProductDefinition
+     * @var ProductEntity
      */
     protected $product;
 
@@ -78,18 +81,34 @@ class PremiumArticleEntity extends Entity
     }
 
     /**
-     * @return ProductDefinition
+     * @return ProductEntity
      */
-    public function getProduct(): ProductDefinition
+    public function getProduct(): ?ProductEntity
     {
         return $this->product;
     }
 
     /**
-     * @param ProductDefinition $product
+     * @param ProductEntity $product
      */
-    public function setProduct(ProductDefinition $product): void
+    public function setProduct(ProductEntity $product): void
     {
         $this->product = $product;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProductId(): ?string
+    {
+        return $this->productId;
+    }
+
+    /**
+     * @param string $productId
+     */
+    public function setProductId(string $productId): void
+    {
+        $this->productId = $productId;
     }
 }

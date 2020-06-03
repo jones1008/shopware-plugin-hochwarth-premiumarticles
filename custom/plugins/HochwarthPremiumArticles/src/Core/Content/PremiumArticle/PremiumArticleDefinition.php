@@ -32,7 +32,7 @@ class PremiumArticleDefinition extends EntityDefinition
             (new FloatField('min_price', 'minPrice')),
             (new FkField('product_id', 'productId', ProductDefinition::class))->addFlags(),
             (new ReferenceVersionField(ProductDefinition::class)),
-            new ManyToOneAssociationField('product', 'product_id', ProductDefinition::class),
+            new ManyToOneAssociationField('product', 'product_id', ProductDefinition::class, 'id', true),
             (new BoolField('automatic_add', 'automaticAdd')),
         ]);
     }

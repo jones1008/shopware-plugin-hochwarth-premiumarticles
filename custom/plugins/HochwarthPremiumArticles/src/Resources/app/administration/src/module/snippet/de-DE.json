@@ -4,9 +4,17 @@
             "pluginName": "Prämienartikel",
             "description": "Verwalte hier deine Prämienartikel."
         },
+        "entity": {
+            "active": "Prämie aktiv",
+            "minPrice": "ab Warenkorb-Wert",
+            "product": "Prämien-Artikel",
+            "automaticAdd": "automatisch hinzufügen"
+        },
         "list": {
-            "active": "aktiv",
-            "minPrice": "Preis"
-        }
+            "addButtonText": "Hinzufügen"
+        },
+        "cancelButtonText": "Abbrechen",
+        "saveButtonText": "Speichern",
+        "saveErrorText": "Fehler beim Speichern"
     }
 }

@@ -1,4 +1,6 @@
 import "./page/hochwarth-premiumArticles-list";
+import "./page/hochwarth-premiumArticles-detail";
+import "./page/hochwarth-premiumArticles-create";
 
 import deDE from '../snippet/de-DE';
 import enGB from '../snippet/en-GB';

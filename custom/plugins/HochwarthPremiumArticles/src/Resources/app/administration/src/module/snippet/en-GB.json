@@ -1,8 +1,20 @@
 {
     "hochwarth-premiumArticles": {
         "general": {
-            "pluginName": "Premium Articles",
-            "description": "Manage your premium articles here."
-        }
+            "pluginName": "Premium articles",
+            "description": "Configure your premium articles here."
+        },
+        "entity": {
+            "active": "active",
+            "minPrice": "from cart value",
+            "product": "premium article",
+            "automaticAdd": "add automatically"
+        },
+        "list": {
+            "addButtonText": "Add"
+        },
+        "cancelButtonText": "cancel",
+        "saveButtonText": "save",
+        "saveErrorText": "Error while saving"
     }
 }

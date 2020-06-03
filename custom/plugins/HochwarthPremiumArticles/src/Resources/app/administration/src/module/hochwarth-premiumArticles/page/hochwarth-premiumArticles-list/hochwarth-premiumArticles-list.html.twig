@@ -1,5 +1,12 @@
 {% block hochwarth_premiumArticles_list %}
-    <sw-page class="hochwarth-premium-articles-list">
+    <sw-page class="hochwarth-premiumArticles-list">
+        {% block hochwarth_premiumArticles_list_smart_bar_actions %}
+            <template slot="smart-bar-actions">
+                <sw-button variant="primary" :routerLink="{ name: 'hochwarth.premiumArticles.create' }">
+                    {{ $t('hochwarth-premiumArticles.list.addButtonText') }}
+                </sw-button>
+            </template>
+        {% endblock %}
         <template slot="content">
             {% block hochwarth_premiumArticles_list_content %}
                 <sw-entity-listing
@@ -8,7 +15,18 @@
                         :repository="repository"
                         :showSelection="false"
                         :columns="columns"
-                        detailRoute="hochwarth.premiumArticles.detail">
+                        detailRoute="hochwarth.premiumArticles.detail"
+                >
+{#                    {% block hochwarth_premiumArticles_list_grid_columns_active %}#}
+{#                        <template #column-active="{ item, isInlineEdit }">#}
+{#                            <sw-data-grid-column-boolean v-model="item.active" :isInlineEdit="isInlineEdit"/>#}
+{#                        </template>#}
+{#                    {% endblock %}#}
+{#                    {% block hochwarth_premiumArticles_list_grid_columns_automaticAdd %}#}
+{#                        <template #column-automaticAdd="{ item, isInlineEdit }">#}
+{#                            <sw-data-grid-column-boolean v-model="item.automaticAdd" :isInlineEdit="isInlineEdit"/>#}
+{#                        </template>#}
+{#                    {% endblock %}#}
                 </sw-entity-listing>
             {% endblock %}
         </template>
