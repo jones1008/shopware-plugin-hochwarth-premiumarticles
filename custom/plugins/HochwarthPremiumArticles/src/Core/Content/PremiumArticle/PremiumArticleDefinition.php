@@ -2,12 +2,14 @@
 
 namespace HochwarthPremiumArticles\Core\Content\PremiumArticle;
 
+use HochwarthPremiumArticles\Core\Content\PremiumArticle\Aggregate\PremiumArticleCustomerGroup\PremiumArticleCustomerGroupDefinition;
+use Shopware\Core\Checkout\Customer\Aggregate\CustomerGroup\CustomerGroupDefinition;
 use Shopware\Core\Content\Product\ProductDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\BoolField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\IntField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\FloatField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToManyAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ReferenceVersionField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
@@ -17,11 +19,9 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
 
 class PremiumArticleDefinition extends EntityDefinition
 {
-    public const ENTITY_NAME = 'hochwarth_premium_article';
-
     public function getEntityName(): string
     {
-        return self::ENTITY_NAME;
+        return 'hochwarth_premium_article';
     }
 
     protected function defineFields(): FieldCollection
@@ -29,11 +29,12 @@ class PremiumArticleDefinition extends EntityDefinition
         return new FieldCollection([
             (new IdField('id', 'id'))->addFlags(new Required(), new PrimaryKey()),
             (new BoolField('active', 'active'))->addFlags(new Required()),
-            (new FloatField('min_price', 'minPrice')),
-            (new FkField('product_id', 'productId', ProductDefinition::class))->addFlags(),
+            (new FloatField('min_price', 'minPrice'))->addFlags(new Required()),
+            (new FkField('product_id', 'productId', ProductDefinition::class))->addFlags(new Required()),
             (new ReferenceVersionField(ProductDefinition::class)),
             new ManyToOneAssociationField('product', 'product_id', ProductDefinition::class, 'id', true),
             (new BoolField('automatic_add', 'automaticAdd')),
+            new ManyToManyAssociationField('customerGroups', CustomerGroupDefinition::class, PremiumArticleCustomerGroupDefinition::class, 'premium_article_id', 'customer_group_id'),
         ]);
     }
 }

@@ -18,7 +18,6 @@ Shopware.Component.register('hochwarth-premiumArticles-list', {
         };
     },
     created() {
-        console.log("test");
         this.repository = this.repositoryFactory.create('hochwarth_premium_article');
         this.repository.search(new Criteria(), Shopware.Context.api).then((result) => {
             this.premiumArticles = result;
@@ -29,24 +28,24 @@ Shopware.Component.register('hochwarth-premiumArticles-list', {
             return [
                 {
                     property: 'minPrice',
-                    label: this.$tc('hochwarth-premiumArticles.entity.minPrice'),
+                    label: this.$tc('hochwarth-premiumArticles.list.minPrice'),
                     inlineEdit: 'number',
                     allowResize: true,
                 },
                 {
                     property: 'active',
-                    label: this.$tc('hochwarth-premiumArticles.entity.active'),
+                    label: this.$tc('hochwarth-premiumArticles.list.active'),
                     inlineEdit: 'boolean',
                     allowResize: true,
                 },
                 {
                     property: 'product.name',
-                    label: this.$tc('hochwarth-premiumArticles.entity.product'),
+                    label: this.$tc('hochwarth-premiumArticles.list.product'),
                     allowResize: true,
                 },
                 {
                     property: 'automaticAdd',
-                    label: this.$tc('hochwarth-premiumArticles.entity.automaticAdd'),
+                    label: this.$tc('hochwarth-premiumArticles.list.automaticAdd'),
                     inlineEdit: 'boolean',
                     allowResize: true,
                 },

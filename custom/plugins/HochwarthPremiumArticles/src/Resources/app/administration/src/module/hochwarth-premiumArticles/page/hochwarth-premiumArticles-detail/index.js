@@ -1,6 +1,8 @@
 import template from './hochwarth-premiumArticles-detail.html.twig';
 
 const { Component, Mixin } = Shopware;
+const { mapPropertyErrors } = Shopware.Component.getComponentHelper();
+const {Criteria} = Shopware.Data;
 
 Component.register('hochwarth-premiumArticles-detail', {
     template,
@@ -30,7 +32,9 @@ Component.register('hochwarth-premiumArticles-detail', {
     },
     methods: {
         getPremiumArticle() {
-            this.repository.get(this.$route.params.id, Shopware.Context.api).then((entity) => {
+            const criteria = new Criteria();
+            criteria.addAssociation("customerGroups");
+            this.repository.get(this.$route.params.id, Shopware.Context.api, criteria).then((entity) => {
                 this.premiumArticle = entity;
             });
         },
@@ -51,5 +55,13 @@ Component.register('hochwarth-premiumArticles-detail', {
         saveFinish() {
             this.processSuccess = false;
         },
+        arrayEmpty(array) {
+            return typeof array === 'undefined' || array.length <= 0;
+        }
+    },
+    computed: {
+        ...mapPropertyErrors('premiumArticle', [
+            'minPrice', 'productId'
+        ]),
     }
 });

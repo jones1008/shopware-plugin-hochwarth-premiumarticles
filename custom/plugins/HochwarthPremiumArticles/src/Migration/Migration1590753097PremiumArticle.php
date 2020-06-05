@@ -10,7 +10,7 @@ class Migration1590753097PremiumArticle extends MigrationStep
 {
     use InheritanceUpdaterTrait;
 
-    public const TABLENAME = 'hochwarth_premium_article';
+    private const TABLENAME = 'hochwarth_premium_article';
 
     public function getCreationTimestamp(): int
     {
@@ -22,11 +22,11 @@ class Migration1590753097PremiumArticle extends MigrationStep
         $sql = '
             CREATE TABLE `' . self::TABLENAME . '` (
                 `id` BINARY(16) NOT NULL,
-                `active` TINYINT(1) NOT NULL DEFAULT \'0\',
+                `active` TINYINT(1) NOT NULL DEFAULT \'1\',
                 `min_price` DOUBLE NULL,
                 `product_id` BINARY(16) NULL,
                 `product_version_id` BINARY(16) NULL,
-                `automatic_add` TINYINT(1) NULL DEFAULT \'0\',
+                `automatic_add` TINYINT(1) NULL DEFAULT \'1\',
                 `created_at` DATETIME(3) NOT NULL,
                 `updated_at` DATETIME(3) NULL,
                 PRIMARY KEY (`id`),

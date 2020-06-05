@@ -4,17 +4,24 @@
             "pluginName": "Premium articles",
             "description": "Configure your premium articles here."
         },
-        "entity": {
-            "active": "active",
-            "minPrice": "from cart value",
-            "product": "premium article",
-            "automaticAdd": "add automatically"
-        },
         "list": {
-            "addButtonText": "Add"
+            "active": "Enabled",
+            "minPrice": "Shopping cart value",
+            "product": "Premium article",
+            "automaticAdd": "Add automatically",
+            "customerGroups": "Customer groups"
         },
-        "cancelButtonText": "cancel",
-        "saveButtonText": "save",
-        "saveErrorText": "Error while saving"
+        "detail": {
+            "active": "Enabled (Show in Storefront)",
+            "minPrice": "Shopping cart value (minimum)",
+            "product": "Premium article",
+            "automaticAdd": "Add automatically to shopping cart",
+            "customerGroups": "Assigned customer groups (leave empty to ignore)",
+
+            "minPricePlaceholder": "Enter a min cart value...",
+            "productPlaceholder": "Enter a product...",
+            "customerGroupsPlaceholder": "Select customer groups..."
+        },
+        "saveErrorText": "Error while saving your premium article"
     }
 }

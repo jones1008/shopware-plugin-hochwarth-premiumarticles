@@ -8,13 +8,9 @@
             "active": "Prämie aktiv",
             "minPrice": "ab Warenkorb-Wert",
             "product": "Prämien-Artikel",
-            "automaticAdd": "automatisch hinzufügen"
+            "automaticAdd": "automatisch hinzufügen",
+            "customerGroups": "zugeordnete Kundengruppen"
         },
-        "list": {
-            "addButtonText": "Hinzufügen"
-        },
-        "cancelButtonText": "Abbrechen",
-        "saveButtonText": "Speichern",
-        "saveErrorText": "Fehler beim Speichern"
+        "saveErrorText": "Fehler beim Speichern des Prämienartikels"
     }
 }
