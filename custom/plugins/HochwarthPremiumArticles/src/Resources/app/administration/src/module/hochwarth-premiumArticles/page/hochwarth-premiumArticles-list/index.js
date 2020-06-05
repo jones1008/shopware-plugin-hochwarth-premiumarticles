@@ -27,6 +27,11 @@ Shopware.Component.register('hochwarth-premiumArticles-list', {
         columns() {
             return [
                 {
+                    property: 'product.name',
+                    label: this.$tc('hochwarth-premiumArticles.list.product'),
+                    allowResize: true,
+                },
+                {
                     property: 'minPrice',
                     label: this.$tc('hochwarth-premiumArticles.list.minPrice'),
                     inlineEdit: 'number',
@@ -36,11 +41,6 @@ Shopware.Component.register('hochwarth-premiumArticles-list', {
                     property: 'active',
                     label: this.$tc('hochwarth-premiumArticles.list.active'),
                     inlineEdit: 'boolean',
-                    allowResize: true,
-                },
-                {
-                    property: 'product.name',
-                    label: this.$tc('hochwarth-premiumArticles.list.product'),
                     allowResize: true,
                 },
                 {
