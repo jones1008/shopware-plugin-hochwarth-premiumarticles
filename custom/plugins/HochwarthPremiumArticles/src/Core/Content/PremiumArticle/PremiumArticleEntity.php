@@ -4,6 +4,7 @@ use Shopware\Core\Checkout\Customer\Aggregate\CustomerGroup\CustomerGroupEntity;
 use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
+use Shopware\Core\System\SalesChannel\SalesChannelEntity;
 
 class PremiumArticleEntity extends Entity
 {
@@ -26,6 +27,9 @@ class PremiumArticleEntity extends Entity
 
     /** @var CustomerGroupEntity */
     protected $customerGroups;
+
+    /** @var SalesChannelEntity */
+    protected $salesChannels;
 
     /** @return bool */
     public function isActive(): bool
@@ -97,5 +101,17 @@ class PremiumArticleEntity extends Entity
     public function setCustomerGroups(CustomerGroupEntity $customerGroups): void
     {
         $this->customerGroups = $customerGroups;
+    }
+
+    /** @return SalesChannelEntity */
+    public function getSalesChannels(): ?SalesChannelEntity
+    {
+        return $this->salesChannels;
+    }
+
+    /** @param SalesChannelEntity $salesChannels */
+    public function setSalesChannels(SalesChannelEntity $salesChannels): void
+    {
+        $this->salesChannels = $salesChannels;
     }
 }

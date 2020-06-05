@@ -4,12 +4,26 @@
             "pluginName": "Prämienartikel",
             "description": "Verwalte hier deine Prämienartikel."
         },
-        "entity": {
-            "active": "Prämie aktiv",
-            "minPrice": "ab Warenkorb-Wert",
-            "product": "Prämien-Artikel",
-            "automaticAdd": "automatisch hinzufügen",
-            "customerGroups": "zugeordnete Kundengruppen"
+        "list": {
+            "active": "Aktiviert",
+            "minPrice": "Ab Warenkorbwert",
+            "product": "Prämienartikel",
+            "automaticAdd": "Automatisch hinzufügen",
+            "customerGroups": "Kundengruppen",
+            "salesChannels": "Verkaufskanäle"
+        },
+        "detail": {
+            "active": "Aktiviert (im Shop zeigen)",
+            "minPrice": "Ab Warenkorbwert (min)",
+            "product": "Prämienartikel",
+            "automaticAdd": "Automatisch zum Warenkorb hinzufügen",
+            "customerGroups": "Zugehörige Kundengruppen (leer lassen zum Ignorieren)",
+            "salesChannels": "Zugehörige Verkaufskanäle (leer lassen zum Ignorieren)",
+
+            "minPricePlaceholder": "Gib einen Mindest-Betrag ein...",
+            "productPlaceholder": "Gib einen Produktnamen ein...",
+            "customerGroupsPlaceholder": "Wähle Kundengruppen...",
+            "salesChannelsPlaceholder": "Wähle Verkaufskanäle..."
         },
         "saveErrorText": "Fehler beim Speichern des Prämienartikels"
     }

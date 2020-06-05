@@ -18,5 +18,12 @@
         <service id="HochwarthPremiumArticles\Core\Content\CustomerGroup\CustomerGroupExtension">
             <tag name="shopware.entity.extension"/>
         </service>
+
+        <service id="HochwarthPremiumArticles\Core\Content\PremiumArticle\Aggregate\PremiumArticleSalesChannel\PremiumArticleSalesChannelDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+        <service id="HochwarthPremiumArticles\Core\Content\SalesChannel\SalesChannelExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
     </services>
 </container>

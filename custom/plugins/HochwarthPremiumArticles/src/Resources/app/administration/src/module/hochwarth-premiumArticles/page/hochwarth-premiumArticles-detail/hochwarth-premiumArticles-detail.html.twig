@@ -51,6 +51,13 @@
                             v-model="premiumArticle.customerGroups"
                             :placeholder="$t('hochwarth-premiumArticles.detail.customerGroupsPlaceholder')"
                     ></sw-entity-many-to-many-select>
+                    <sw-entity-many-to-many-select
+                            :label="$t('hochwarth-premiumArticles.detail.salesChannels')"
+                            :localMode="true"
+                            :entityCollection="premiumArticle.salesChannels"
+                            v-model="premiumArticle.salesChannels"
+                            :placeholder="$t('hochwarth-premiumArticles.detail.salesChannelsPlaceholder')"
+                    ></sw-entity-many-to-many-select>
                 </sw-card>
             </sw-card-view>
         </template>

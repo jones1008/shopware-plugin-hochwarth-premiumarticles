@@ -34,6 +34,7 @@ Component.register('hochwarth-premiumArticles-detail', {
         getPremiumArticle() {
             const criteria = new Criteria();
             criteria.addAssociation("customerGroups");
+            criteria.addAssociation("salesChannels");
             this.repository.get(this.$route.params.id, Shopware.Context.api, criteria).then((entity) => {
                 this.premiumArticle = entity;
             });
