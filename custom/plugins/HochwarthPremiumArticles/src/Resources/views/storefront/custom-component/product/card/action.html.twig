@@ -1,0 +1,51 @@
+{% sw_extends '@Storefront/storefront/component/product/card/action.html.twig' %}
+{% block component_product_box_action_form %}
+    {% set maxPremiumArticlesReached = page.extensions.maxPremiumArticlesReached.value %}
+    {% set enoughCartValue = page.cart.price.totalPrice >= premiumArticle.minPrice %}
+    {% set canAdd = not maxPremiumArticlesReached and enoughCartValue %}
+
+    {% set missingAmount = premiumArticle.minPrice - page.cart.price.totalPrice %}
+
+    {% block component_product_box_action_buy_redirect_input %}
+        {# fallback redirect back to detail page is deactivated via js #}
+        <input type="hidden"
+               name="redirectTo"
+               value="frontend.detail.page">
+
+        <input type="hidden"
+               name="redirectParameters"
+               data-redirect-parameters="true"
+               value='{"productId": "{{ product.id }}"}'>
+    {% endblock %}
+
+    {% block page_product_detail_buy_product_buy_info %}
+        <input type="hidden"
+               name="lineItems[{{ premiumArticle.id }}][id]"
+               value="{{ premiumArticle.id }}">
+        <input type="hidden"
+               name="lineItems[{{ premiumArticle.id }}][referencedId]"
+               value="{{ premiumArticle.id }}">
+        <input type="hidden"
+               name="lineItems[{{ premiumArticle.id }}][type]"
+               value="premiumArticle">
+        <input type="hidden"
+               name="lineItems[{{ premiumArticle.id }}][stackable]"
+               value="1">
+        <input type="hidden"
+               name="lineItems[{{ premiumArticle.id }}][removable]"
+               value="1">
+        <input type="hidden"
+               name="lineItems[{{ premiumArticle.id }}][quantity]"
+               value="1">
+    {% endblock %}
+
+    <button class="btn btn-block btn-buy{% if not canAdd %} disabled{% endif %}" {% if not canAdd %}disabled{% endif %}>
+        {% if maxPremiumArticlesReached %}
+            Prämienlimit erreicht
+        {% elseif enoughCartValue %}
+            Prämie hinzufügen
+        {% else %}
+            noch {{ missingAmount }} €
+        {% endif %}
+    </button>
+{% endblock %}

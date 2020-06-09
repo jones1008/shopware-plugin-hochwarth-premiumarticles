@@ -40,4 +40,14 @@ class PremiumArticleDefinition extends EntityDefinition
             new ManyToManyAssociationField('salesChannels', SalesChannelDefinition::class, PremiumArticleSalesChannelDefinition::class, 'premium_article_id', 'sales_channel_id'),
         ]);
     }
+
+    public function getEntityClass(): string
+    {
+        return PremiumArticleEntity::class;
+    }
+
+    public function getCollectionClass(): string
+    {
+        return PremiumArticleCollection::class;
+    }
 }

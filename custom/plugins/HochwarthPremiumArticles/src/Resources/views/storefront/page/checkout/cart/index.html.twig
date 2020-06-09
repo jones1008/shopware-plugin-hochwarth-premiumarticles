@@ -1,0 +1,36 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+{% block page_checkout_container %}
+    {{ parent() }}
+    {% set premiumArticles = page.extensions.premiumArticles.entities.elements %}
+{#    rotate value false funktioniert nicht :/#}
+    {% set config = {
+        'title': {
+            'value': "Prämie raussuchen"
+        },
+        'border': {
+            'value': false
+        },
+        'rotate': {
+            'value': false
+        },
+        'boxLayout': {
+            'value': 'standard'
+        },
+        'elMinWidth': {
+            'value': '300px'
+        },
+        'navigation': {
+            'value': true
+        },
+        'verticalAlign': {
+            'value': 'top'
+        },
+    } %}
+
+    {% sw_include "@HochwarthPremiumArticles/storefront/custom-element/cms-element-product-slider.html.twig" with {
+        sliderConfig: config,
+        element: {
+            type: 'product-slider'
+        }
+    } %}
+{% endblock %}

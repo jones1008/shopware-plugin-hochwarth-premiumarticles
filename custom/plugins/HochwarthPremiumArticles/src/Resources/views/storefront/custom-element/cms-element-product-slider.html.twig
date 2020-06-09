@@ -1,0 +1,18 @@
+{% sw_extends '@Storefront/storefront/element/cms-element-product-slider.html.twig' %}
+{% block element_product_slider_element %}
+    <div class="product-slider-container" data-product-slider-container="true">
+        {% for premiumArticle in premiumArticles %}
+            {% block element_product_slider_inner_item %}
+                <div class="product-slider-item">
+                    {% set layout = 'standard' %}
+                    {% set product = premiumArticle.product %}
+                    {% sw_include '@HochwarthPremiumArticles/storefront/custom-component/product/card/box-standard.html.twig' ignore missing %}
+{#                    {% sw_include '@Storefront/storefront/component/product/card/box.html.twig' with {#}
+{#                        'layout': sliderConfig.boxLayout.value,#}
+{#                        'displayMode': sliderConfig.displayMode.value#}
+{#                    } %}#}
+                </div>
+            {% endblock %}
+        {% endfor %}
+    </div>
+{% endblock %}

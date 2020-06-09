@@ -1,5 +1,7 @@
 <?php declare(strict_types=1);
 
+namespace HochwarthPremiumArticles\Core\Content\PremiumArticle;
+
 use Shopware\Core\Checkout\Customer\Aggregate\CustomerGroup\CustomerGroupEntity;
 use Shopware\Core\Content\Product\ProductEntity;
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
